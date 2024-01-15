@@ -18,7 +18,9 @@
     "predev": "rimraf .parcel-cache dist",
     "dev": "parcel public/index.html",
     "build": "parcel build public/index.html",
-    "new-component": "new-component"
+    "new-component": "new-component",
+	"format": "prettier --write .",
+	"format:check": "prettier --check ."
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
