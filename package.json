@@ -4,12 +4,19 @@
 	"private": true,
 	"author": "Josh Comeau <me@joshwcomeau.com>",
 	"dependencies": {
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@types/react": "18.2.43",
+		"@types/react-dom": "18.2.17",
 		"@vitejs/plugin-react": "4.2.1",
-		"eslint": "8.49.0",
+		"eslint": "8.55.0",
+		"eslint-plugin-react": "7.33.2",
+		"eslint-plugin-react-hooks": "4.6.0",
+		"eslint-plugin-react-refresh": "0.4.5",
 		"new-component": "5.0.2",
 		"prettier": "2.6.2",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
 		"vite": "5.0.8"
 	},
 	"scripts": {
