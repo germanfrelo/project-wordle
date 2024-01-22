@@ -10,7 +10,7 @@ In Wordle, users have 6 attempts to guess a 5-letter word. You're helped along t
 
 ## Getting Started
 
-This project is created with [Parcel](https://parceljs.org/), a modern JS build tool. It's intended to be run locally, on your computer, using Node.js and NPM.
+This project is created with [Vite](https://vitejs.dev/), a modern JS build tool. It's intended to be run locally, on your computer, using Node.js and NPM.
 
 If you're not sure how to run a local development server, or if you run into some trouble, check out the [“Local Development” instructions](https://courses.joshwcomeau.com/joy-of-react/project-wordle/03-dev-server). It includes all the info you need to know, including troubleshooting common issues.
 

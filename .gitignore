@@ -5,10 +5,6 @@ node_modules
 .pnp
 .pnp.js
 
-# parcel-generated files
-dist
-.parcel-cache
-
 # misc
 .DS_Store
 .env.local
