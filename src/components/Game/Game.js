@@ -2,6 +2,11 @@ import React from "react";
 
 import { WORDS } from "../../data";
 import { sample } from "../../utils";
+import BannerLose from "../BannerLose";
+import BannerWin from "../BannerWin";
+import GuessInput from "../GuessInput";
+import GuessResults from "../GuessResults";
+import VisualKeyboard from "../VisualKeyboard/VisualKeyboard";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -9,7 +14,35 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-	return <>Put a game here!</>;
+	const [gameStatus, setGameStatus] = React.useState("running"); // running | won | lost
+	const [guesses, setGuesses] = React.useState([]);
+
+	function handleSubmitGuess(tentativeGuess) {
+		const nextGuesses = [...guesses, tentativeGuess];
+		setGuesses(nextGuesses);
+
+		if (tentativeGuess.toUpperCase() === answer) {
+			setGameStatus("won");
+		} else if (nextGuesses.length >= NUM_OF_GUESSES_ALLOWED) {
+			setGameStatus("lost");
+		}
+	}
+
+	return (
+		<>
+			{gameStatus === "lost" && <BannerLose answer={answer} />}
+			{gameStatus === "won" && <BannerWin numOfGuesses={guesses.length} />}
+			<GuessResults
+				guesses={guesses}
+				answer={answer}
+			/>
+			<GuessInput
+				handleSubmitGuess={handleSubmitGuess}
+				isDisabled={gameStatus !== "running"}
+			/>
+			<VisualKeyboard />
+		</>
+	);
 }
 
 export default Game;
