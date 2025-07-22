@@ -13,6 +13,10 @@
 		"react-dom": "19.1.0",
 		"rimraf": "6.0.1"
 	},
+	"devDependencies": {
+		"@eslint/js": "^9.31.0",
+		"globals": "^16.3.0"
+	},
 	"scripts": {
 		"predev": "rimraf .parcel-cache dist",
 		"dev": "parcel public/index.html",
