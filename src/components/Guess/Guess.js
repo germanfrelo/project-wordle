@@ -1,4 +1,3 @@
-import React from "react";
 import { checkGuess } from "../../game-helpers";
 import { range } from "../../utils";
 
