@@ -1,5 +1,3 @@
-import React from "react";
-
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import { WORDS } from "../../data";
 import { sample } from "../../utils";

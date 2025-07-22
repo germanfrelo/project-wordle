@@ -1,5 +1,3 @@
-import React from "react";
-
 function GuessInput({ handleSubmitGuess, isDisabled }) {
 	const [tentativeGuess, setTentativeGuess] = React.useState("");
 
