@@ -1,33 +1,51 @@
-/*
-  Theme and global variables
-*/
-html {
-	overflow-y: scroll;
+:root {
+	/* Fluid type scale */
+	/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,20,1.25,2,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--step--1: clamp(0.8331rem, 0.7751rem + 0.2902vw, 1rem);
+	--step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+	--step-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+	--step-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
 
-	--game-spacing: 32px;
-	--header-height: 4rem;
+	/* Fluid space scale */
+	/* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+	--space-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+	--space-2xs: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem);
+	--space-xs: clamp(0.75rem, 0.6848rem + 0.3261vw, 0.9375rem);
+	--space-s: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+	--space-m: clamp(1.5rem, 1.3696rem + 0.6522vw, 1.875rem);
+	--space-l: clamp(2rem, 1.8261rem + 0.8696vw, 2.5rem);
+	--space-xl: clamp(3rem, 2.7391rem + 1.3043vw, 3.75rem);
+	--space-2xl: clamp(4rem, 3.6522rem + 1.7391vw, 5rem);
+	--space-3xl: clamp(6rem, 5.4783rem + 2.6087vw, 7.5rem);
 
-	--color-success: hsl(150deg 70% 30%);
-	--color-warning: hsl(50deg 100% 30%);
-	--color-error: hsl(0deg 70% 45%);
+	/* Colors */
+	/* --color-success: hsl(150deg 70% 30%); */
+	--color-success: hsl(140deg 50% 34%);
+	--color-warning: hsl(50deg 100% 33%);
+	--color-error: hsl(0deg 80% 45%);
 	--color-gray-100: hsl(0deg 0% 10%);
-	--color-gray-300: hsl(0deg 0% 25%);
 	--color-gray-500: hsl(0deg 0% 50%);
-	--color-gray-700: hsl(0deg 0% 75%);
+	--color-gray-700: hsl(0deg 0% 80%);
 	--color-gray-900: hsl(0deg 0% 90%);
 }
 
-/*
-  Custom styles
-*/
-body {
-	font-family: sans-serif;
+* {
+	min-inline-size: 0;
 }
 
-@media (max-height: 600px) {
-	body {
-		--game-spacing: 8px;
-	}
+html {
+	overflow-y: scroll;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	font-size: var(--step-0);
+	color: var(--color-gray-100);
+}
+
+h1 {
+	font-size: var(--step-2);
+	line-height: 1.1;
 }
 
 button {
@@ -40,88 +58,67 @@ button {
 	color: inherit;
 }
 
+header {
+	padding: var(--space-xs);
+	text-align: center;
+	border-bottom: 1px solid var(--color-gray-700);
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
 }
 
-header {
-	display: flex;
-	height: var(--header-height);
-	border-bottom: 1px solid var(--color-gray-700);
-	color: var(--color-gray-300);
-}
-
-header .side {
-	width: var(--header-height);
-	display: grid;
-	place-content: center;
-}
-
-h1 {
-	flex: 1;
-	font-size: 2rem;
-	line-height: var(--header-height);
-	text-align: center;
-}
-
-@media (max-width: 25rem) {
-	h1 {
-		font-size: 1.25rem;
-	}
-}
-
 .game-wrapper {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: var(--game-spacing);
-	padding: var(--game-spacing) 32px;
+	justify-content: space-evenly;
+	gap: var(--space-s);
+	padding-block: var(--space-s);
+	padding-inline: var(--space-3xs);
 	margin: 0 auto;
-	min-width: 250px;
-	max-width: min(500px, 58vh, 100%);
 }
 
 .guess-results {
-	flex: 1;
+	/* flex: 1; */
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	align-items: center;
+	/* justify-content: center; */
+	gap: var(--space-3xs);
 }
 
 .guess {
 	display: flex;
-	gap: 4px;
-	margin-bottom: 4px;
+	gap: var(--space-3xs);
 }
 
 .cell {
-	position: relative;
+	/* flex: 1;
 	width: 20%;
 	display: grid;
 	place-content: center;
 	aspect-ratio: 1 / 1;
+	font-size: var(--step-2);
+	font-weight: bold;
 	border: 2px solid var(--color-gray-700);
-	border-radius: var(--radius);
-	font-size: 2rem;
-}
+	border-radius: 2px; */
 
-/*
-  Round the corners for the 4 cells at the very corners of
-  the game board
-*/
-.guess:first-of-type .cell:first-of-type {
-	--radius: 4px 0px 0px 0px;
-}
-.guess:first-of-type .cell:last-of-type {
-	--radius: 0px 4px 0px 0px;
-}
-.guess:last-of-type .cell:last-of-type {
-	--radius: 0px 0px 4px 0px;
-}
-.guess:last-of-type .cell:first-of-type {
-	--radius: 0px 0px 0px 4px;
+	display: grid;
+	min-block-size: 2em;
+	place-content: center;
+	font-size: calc(0.5rem + 2vh);
+	line-height: 1;
+	font-weight: bold;
+	border: 2px solid var(--color-gray-700);
+	border-radius: 2px;
+	aspect-ratio: 1;
+	/* block-size: 5vh; */
+	/* inline-size: 6vh; */
+	/* padding: 0.5em; */
+	/* flex: 1; */
 }
 
 .cell.correct {
@@ -130,8 +127,8 @@ h1 {
 	color: white;
 }
 .cell.incorrect {
-	background: var(--color-gray-300);
-	border-color: var(--color-gray-300);
+	background: var(--color-gray-500);
+	border-color: var(--color-gray-500);
 	color: white;
 }
 .cell.misplaced {
@@ -143,36 +140,56 @@ h1 {
 .guess-input-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	height: 6.75rem;
+	gap: var(--space-3xs);
 }
 
 .guess-input-wrapper label {
-	font-size: 1.25rem;
+	font-weight: bold;
 }
 
 .guess-input-wrapper input {
 	display: block;
 	width: 100%;
-	font-size: 2rem;
-	border: 2px solid var(--color-gray-300);
+	font-size: var(--step-1);
+	font-weight: bold;
+	letter-spacing: 1px;
+	border: 2px solid var(--color-gray-500);
 	border-radius: 4px;
-	padding: 8px 16px;
+	padding: 0.25em 0.5em;
 	outline-offset: 4px;
 }
 
+.keyboard {
+	--keyboard-spacing: var(--space-3xs);
+	display: grid;
+	gap: var(--keyboard-spacing);
+}
+
+.keyboard .row {
+	display: flex;
+	justify-content: center;
+	gap: var(--keyboard-spacing);
+}
+
+.keyboard kbd {
+	display: inline-grid;
+	block-size: 2em;
+	aspect-ratio: 1 / 1;
+	padding: 1em;
+	place-content: center;
+	font-family: inherit;
+	font-size: var(--step--1);
+	font-weight: bold;
+	color: var(--color-gray-100);
+	background-color: var(--color-gray-900);
+	border-radius: 4px;
+}
+
 .banner {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 32px;
+	padding: 1em;
 	text-align: center;
-	animation: slideUp 750ms cubic-bezier(0, 0.72, 0.24, 1.02);
-	border-radius: 4px 4px 0px 0px;
+	border-radius: 2px;
+	animation: slideUp 1s cubic-bezier(0, 0.72, 0.24, 1.02);
 	will-change: transform;
 }
 
@@ -185,46 +202,12 @@ h1 {
 	color: white;
 }
 
-.visually-hidden {
-	position: absolute;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	width: 1px;
-	margin: -1px;
-	padding: 0;
-	border: 0;
-}
-
-/*
-  Modal styles
-
-  HACK: I'm doing this in a quick and dirty way.
-  Later in the course, we'll see my preferred way of building
-  modals in React.
-*/
-[data-reach-dialog-content] {
-	position: relative;
-	border-radius: 8px;
-	padding: 24px 32px;
-}
-.modal-close-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 16px;
-	cursor: pointer;
-}
-.modal-title {
-	margin-bottom: 0.5em;
-}
-
 /*
   Keyframe animations
 */
 @keyframes slideUp {
 	from {
-		transform: translateY(100%);
+		transform: translateY(-100%);
 	}
 	to {
 		transform: translateY(0%);
