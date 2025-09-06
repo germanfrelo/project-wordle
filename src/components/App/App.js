@@ -6,9 +6,9 @@ function App() {
 		<div className="wrapper">
 			<Header />
 
-			<div className="game-wrapper">
+			<main className="game-wrapper">
 				<Game />
-			</div>
+			</main>
 		</div>
 	);
 }
