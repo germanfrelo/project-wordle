@@ -5,7 +5,7 @@
 	"author": "Josh Comeau <me@joshwcomeau.com>",
 	"type": "module",
 	"dependencies": {
-		"parcel": "2.15.4",
+		"parcel": "2.16.1",
 		"process": "0.11.10",
 		"react": "19.1.0",
 		"react-dom": "19.1.0"
