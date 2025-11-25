@@ -15,7 +15,7 @@
 		"lint-staged": "16.2.6",
 		"new-component": "6.0.0",
 		"prettier": "3.6.2",
-		"rimraf": "6.0.1"
+		"rimraf": "6.1.2"
 	},
 	"scripts": {
 		"predev": "rimraf .parcel-cache dist",
