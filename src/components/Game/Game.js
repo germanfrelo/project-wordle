@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import { WORDS } from "../../data";
 import { sample } from "../../utils";
@@ -12,8 +13,8 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-	const [gameStatus, setGameStatus] = React.useState("running"); // running | won | lost
-	const [guesses, setGuesses] = React.useState([]);
+	const [gameStatus, setGameStatus] = useState("running"); // running | won | lost
+	const [guesses, setGuesses] = useState([]);
 
 	function handleSubmitGuess(tentativeGuess) {
 		const nextGuesses = [...guesses, tentativeGuess];
