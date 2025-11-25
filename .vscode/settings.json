@@ -11,5 +11,13 @@
 		// Haven't decided yet:
 		// "source.organizeImports": "explicit", // sort imports + remove unused imports
 		"source.sortImports": "explicit"
+	},
+
+	// Appearance
+	"workbench.colorCustomizations": {
+		"titleBar.activeBackground": "#538d4f",
+		"titleBar.inactiveBackground": "#538d4f",
+		"titleBar.activeForeground": "#ffffff",
+		"titleBar.inactiveForeground": "#ffffff80"
 	}
 }
